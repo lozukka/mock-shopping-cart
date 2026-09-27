@@ -1,14 +1,3 @@
-import { Link } from "react-router";
-import { Sun } from "lucide-react";
-
-function App() {
-  return (
-    <>
-      <h2>hello!</h2>
-      <Link to="shop">Shop-link</Link>
-      <Sun color="red" strokeWidth={3} />
-    </>
-  );
-}
+const App = () => <h1>Our First Test</h1>;
 
 export default App;
