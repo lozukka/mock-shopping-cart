@@ -1,3 +1,12 @@
-const App = () => <h1>Our First Test</h1>;
+import { Link } from "react-router";
+import NavBar from "./components/Navbar";
 
+function App() {
+  return (
+    <>
+      <NavBar />
+      <Link to="shop">To shop</Link>
+    </>
+  );
+}
 export default App;
