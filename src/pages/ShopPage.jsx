@@ -4,28 +4,35 @@ import ProductCard from "../components/ProductCard";
 
 function ShopPage() {
   const [itemList, setItemList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function loadItems() {
-      const results = await fetchItems();
-      setItemList(results);
+      try {
+        const results = await fetchItems();
+        setItemList(results);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
     }
     loadItems();
   }, []);
+
+  if (loading) return <p>Loading items...</p>;
+  if (error) return <p>Something went wrong: {error}</p>;
 
   return (
     <>
       <h1>Hi!</h1>
       <div>
-        {itemList.length === 0 ? (
-          <p>Loading items...</p>
-        ) : (
-          <div>
-            {itemList.map((item) => (
-              <ProductCard key={item.id} {...item} />
-            ))}
-          </div>
-        )}
+        <div>
+          {itemList.map((item) => (
+            <ProductCard key={item.id} {...item} />
+          ))}
+        </div>
       </div>
     </>
   );
