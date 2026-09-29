@@ -1,15 +1,17 @@
+import { useContext } from "react";
 import { Link } from "react-router";
 import { ShoppingCart } from "lucide-react";
+import { CartContext } from "../context/CartContext";
 
 function NavBar() {
+  const { itemCount } = useContext(CartContext);
   return (
     <>
       <Link to="/">Home</Link>
       <Link to="shop">Shop</Link>
       <Link to="cart">
-        {" "}
-        Cart
         <ShoppingCart />
+        {itemCount > 0 && <span>{itemCount}</span>}
       </Link>
     </>
   );
