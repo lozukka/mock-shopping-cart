@@ -18,7 +18,12 @@ addToCart(product), removeFromCart(id), incrementQty(id), decrementQty(id)
 total, itemCount
  */
 import { createContext, useState } from "react";
-import { addItem } from "../utils/cartLogic";
+import {
+  addItem,
+  removeFromCart,
+  incrementItem,
+  decrementItem,
+} from "../utils/cartLogic";
 
 export const CartContext = createContext(null);
 
@@ -26,16 +31,24 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => setCart((prev) => addItem(prev, product));
-  const removeFromCart = (product) =>
-    setCart((prev) => removeFromCart(prev, product));
-  // removeFromCart, incrementQty, decrementQty: same pattern, your turn
+  const removeItem = (id) => setCart((prev) => removeFromCart(prev, id));
+  const incrementQty = (id) => setCart((prev) => incrementItem(prev, id));
+  const decrementQty = (id) => setCart((prev) => decrementItem(prev, id));
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, total, itemCount /* + the other functions */ }}
+      value={{
+        cart,
+        addToCart,
+        removeItem,
+        incrementQty,
+        decrementQty,
+        total,
+        itemCount,
+      }}
     >
       {children}
     </CartContext.Provider>
