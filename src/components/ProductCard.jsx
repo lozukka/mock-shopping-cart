@@ -1,8 +1,13 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { CircleMinus } from "lucide-react";
+import { CirclePlus } from "lucide-react";
 
 function ProductCard({ id, title, thumbnail, description, price }) {
-  const { addToCart } = useContext(CartContext);
+  const { cart, addToCart, incrementQty, decrementQty } =
+    useContext(CartContext);
+
+  const cartItem = cart.find((item) => item.id === id);
 
   return (
     <>
@@ -11,9 +16,21 @@ function ProductCard({ id, title, thumbnail, description, price }) {
         <h3>{title}</h3>
         <p>{description}</p>
         <p>{price}</p>
-        <button onClick={() => addToCart({ id, title, price, thumbnail })}>
-          Add to Cart
-        </button>
+        {cartItem ? (
+          <div>
+            <button onClick={() => decrementQty(id)}>
+              <CircleMinus />
+            </button>
+            <span>{cartItem.quantity}</span>
+            <button onClick={() => incrementQty(id)}>
+              <CirclePlus />
+            </button>
+          </div>
+        ) : (
+          <button onClick={() => addToCart({ id, title, price, thumbnail })}>
+            Add to Cart
+          </button>
+        )}
       </div>
     </>
   );
