@@ -26,6 +26,8 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => setCart((prev) => addItem(prev, product));
+  const removeFromCart = (product) =>
+    setCart((prev) => removeFromCart(prev, product));
   // removeFromCart, incrementQty, decrementQty: same pattern, your turn
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
