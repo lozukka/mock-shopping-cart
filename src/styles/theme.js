@@ -5,4 +5,7 @@ export const theme = {
     background: "#fafafa",
     border: "#ddd",
   },
+  fonts: {
+    heading: "'Cormorant Garamond', sans-serif",
+  },
 };

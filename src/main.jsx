@@ -7,6 +7,7 @@ import CartPage from "./pages/CartPage";
 import HomePage from "./pages/HomePage";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
+import "@fontsource-variable/cormorant-garamond";
 
 const router = createBrowserRouter([
   {

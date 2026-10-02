@@ -31,6 +31,9 @@ const AddButton = styled.button`
     background: ${(props) => props.theme.colors.primaryHover};
   }
 `;
+const Title = styled.h3`
+  font-family: ${(props) => props.theme.fonts.heading};
+`;
 
 function ProductCard({ id, title, thumbnail, description, price }) {
   const { cart, addToCart, incrementQty, decrementQty } =
@@ -42,7 +45,7 @@ function ProductCard({ id, title, thumbnail, description, price }) {
     <>
       <Card>
         <Thumbnail src={thumbnail} alt={title} />
-        <h3>{title}</h3>
+        <Title>{title}</Title>
         <p>{description}</p>
         <p>{price.toFixed(2)}</p>
         {cartItem ? (
