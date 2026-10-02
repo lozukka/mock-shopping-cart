@@ -5,6 +5,8 @@ import App from "./App";
 import ShopPage from "./pages/ShopPage";
 import CartPage from "./pages/CartPage";
 import HomePage from "./pages/HomePage";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,10 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <ThemeProvider theme={theme}>
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+    ,
+  </ThemeProvider>,
 );
