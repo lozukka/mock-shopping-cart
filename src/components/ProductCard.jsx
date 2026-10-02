@@ -18,11 +18,17 @@ function ProductCard({ id, title, thumbnail, description, price }) {
         <p>{price}</p>
         {cartItem ? (
           <div>
-            <button onClick={() => decrementQty(id)}>
+            <button
+              onClick={() => decrementQty(id)}
+              aria-label="Decrease quantity"
+            >
               <CircleMinus />
             </button>
             <span>{cartItem.quantity}</span>
-            <button onClick={() => incrementQty(id)}>
+            <button
+              onClick={() => incrementQty(id)}
+              aria-label="Increase quantity"
+            >
               <CirclePlus />
             </button>
           </div>
