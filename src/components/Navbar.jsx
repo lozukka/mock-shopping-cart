@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { CartContext } from "../context/CartContext";
 
 function NavBar() {
@@ -10,7 +10,7 @@ function NavBar() {
       <Link to="/">Home</Link>
       <Link to="shop">Shop</Link>
       <Link to="cart">
-        <ShoppingCart />
+        <ShoppingBag />
         {itemCount > 0 && <span>{itemCount}</span>}
       </Link>
     </>
