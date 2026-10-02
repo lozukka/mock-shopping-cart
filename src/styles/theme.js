@@ -6,6 +6,7 @@ export const theme = {
     border: "#ddd",
   },
   fonts: {
-    heading: "'Cormorant Garamond', sans-serif",
+    heading: "'Cormorant Garamond', serif",
+    body: "'DM Sans', sans-serif",
   },
 };

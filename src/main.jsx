@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import "@fontsource-variable/cormorant-garamond";
+import "@fontsource-variable/dm-sans";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,5 @@ createRoot(document.getElementById("root")).render(
     <StrictMode>
       <RouterProvider router={router} />
     </StrictMode>
-    ,
   </ThemeProvider>,
 );
