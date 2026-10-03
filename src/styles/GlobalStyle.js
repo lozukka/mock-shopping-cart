@@ -14,10 +14,6 @@ export const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.colors.backgroundLight};
   }
 
-  main {
-  badding: 16px;
-  }
-
   header {
   border-bottom: 2px solid ${(props) => props.theme.colors.line}
   }
@@ -27,4 +23,9 @@ export const GlobalStyle = createGlobalStyle`
   display: flex;
   flex-direction: column;
   gap: 10px }
+
+  main {
+  margin: 16px;
+  border: 1px solid black;
+  }
 `;
