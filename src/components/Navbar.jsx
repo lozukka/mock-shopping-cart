@@ -25,8 +25,27 @@ const Logo = styled.div`
 const LogoText = styled.p`
   color: ${(props) => props.theme.colors.primaryFont};
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 18px;
+`;
+const StyledLink = styled(Link)`
+  color: ${(props) => props.theme.colors.primaryFont};
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    text-decoration: underline;
+  }
+`;
+const StyledLinkCart = styled(Link)`
+  color: ${(props) => props.theme.colors.primaryFont};
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  gap: 5px;
 `;
 
 function NavBar() {
@@ -39,19 +58,19 @@ function NavBar() {
         </Banner>
         <Logo>
           <Circle
-            aria-labe="Circle-logo for the webstore"
+            aria-label="Circle-logo for the webstore"
             color="#68704A"
             strokeWidth={4}
           />
           <LogoText>Common Goods</LogoText>
         </Logo>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="shop">Shop</Link>
-          <Link to="cart">
-            <ShoppingBag aria-label="Shopping bag" />
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="shop">Shop</StyledLink>
+          <StyledLinkCart to="cart">
+            <ShoppingBag aria-label="Shopping bag" strokeWidth={2} />
             {itemCount > 0 && <span>{itemCount}</span>}
-          </Link>
+          </StyledLinkCart>
         </nav>
       </header>
     </>

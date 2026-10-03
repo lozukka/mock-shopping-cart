@@ -7,7 +7,9 @@ function App() {
     <>
       <CartProvider>
         <NavBar />
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
       </CartProvider>
     </>
   );

@@ -9,6 +9,7 @@ export const theme = {
     backgroundDark: "#24251F",
     overlayDark: "rgba(36, 37, 31, 0.85)",
     overlayLight: "rgba(255, 255, 255, 0.72)",
+    line: "#D5CFC2",
   },
   fonts: {
     heading: "'Cormorant Garamond', serif",
