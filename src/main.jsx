@@ -9,6 +9,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import "@fontsource-variable/cormorant-garamond";
 import "@fontsource-variable/dm-sans";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <ThemeProvider theme={theme}>
+    <GlobalStyle />
     <StrictMode>
       <RouterProvider router={router} />
     </StrictMode>

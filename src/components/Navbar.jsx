@@ -6,12 +6,14 @@ import { Handbag } from "lucide-react";
 import styled from "styled-components";
 
 const Banner = styled.div`
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
+  background: ${(props) => props.theme.colors.contrast};
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+`;
+const BannerText = styled.p`
+  color: ${(props) => props.theme.colors.contrastFont};
+  text-transform: uppercase;
 `;
 
 function NavBar() {
@@ -20,7 +22,7 @@ function NavBar() {
     <>
       <header>
         <Banner>
-          <p>A fictional storefront made for learning</p>
+          <BannerText>A fictional storefront made for learning</BannerText>
         </Banner>
         <div>
           <Handbag />
