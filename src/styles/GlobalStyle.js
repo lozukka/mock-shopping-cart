@@ -11,5 +11,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: ${(props) => props.theme.fonts.body};
+    background: ${(props) => props.theme.colors.backgroundLight};
   }
 `;

@@ -12,6 +12,6 @@ export const theme = {
   },
   fonts: {
     heading: "'Cormorant Garamond', serif",
-    body: "'DM Sans', sans-serif",
+    body: "'DM Sans Variable', sans-serif",
   },
 };
