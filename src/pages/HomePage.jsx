@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ChevronRight } from "lucide-react";
+import heroImage from "../assets/heroImage.jpg";
 
 const Hero = styled.div`
   display: flex;
@@ -45,9 +46,7 @@ const HeroLinks = styled.div`
   display: flex;
   gap: 1rem;
 `;
-const ShopLink = styled.a`
-  background: ${(props) => props.theme.colors.contrast};
-  color: ${(props) => props.theme.colors.contrastFont};
+const LinkButton = styled.a`
   text-decoration: none;
   font-weight: 500;
   font-size: 13px;
@@ -58,19 +57,15 @@ const ShopLink = styled.a`
   align-items: center;
   gap: 10px;
 `;
-const StoryLink = styled.a`
+
+const ShopLink = styled(LinkButton)`
+  background: ${(props) => props.theme.colors.contrast};
+  color: ${(props) => props.theme.colors.contrastFont};
+`;
+const StoryLink = styled(LinkButton)`
   background: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.primaryFont};
   border: 1px solid ${(props) => props.theme.colors.primaryFont};
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 13px;
-  text-align: center;
-  padding: 15px 22px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 `;
 const HeroRightSide = styled.div`
   display: flex;
@@ -91,11 +86,11 @@ const HeroRightSideLink = styled.a`
   gap: 100px;
   border-radius: 8px;
   position: absolute;
-  z-index: 500;
+  z-index: 10;
   bottom: 16px;
   left: 16px;
 `;
-const ImageHeading = styled.h3`
+const ImageHeading = styled.h2`
   font-size: 13px;
   font-weight: 500;
 `;
@@ -130,7 +125,7 @@ function HomePage() {
         </HeroLeftSide>
         <HeroRightSide>
           <HeroImage
-            src="src\assets\pexels-furniture-1840463.jpg"
+            src={heroImage}
             alt="Cozy office with a table and two stairs. On the table are notebooks and behind the table is some green plants."
           />
           <HeroRightSideLink href="#">
