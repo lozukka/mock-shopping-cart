@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { ChevronRight } from "lucide-react";
 import heroImage from "../assets/heroImage.jpg";
+import { useEffect, useState } from "react";
+import { fetchItems } from "../utils/fetchItems";
 
 const Hero = styled.div`
   display: flex;
@@ -121,6 +123,27 @@ const ImageText = styled.p`
 `;
 
 function HomePage() {
+  const [itemList, setItemList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function loadItems() {
+      try {
+        const results = await fetchItems(4);
+        setItemList(results);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadItems();
+  }, []);
+
+  if (loading) return <p>Loading items...</p>;
+  if (error) return <p>Something went wrong: {error}</p>;
+
   return (
     <>
       <Hero>
@@ -160,7 +183,13 @@ function HomePage() {
       </Hero>
       <div>
         <div></div>
-        <div></div>
+        <div>
+          <div>
+            {itemList.map((item) => (
+              <ProductCard key={item.id} {...item} />
+            ))}
+          </div>
+        </div>
       </div>
       <footer></footer>
     </>
