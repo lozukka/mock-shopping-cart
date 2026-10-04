@@ -21,6 +21,9 @@ const Logo = styled.div`
   align-items: center;
   margin: 1rem;
   gap: 11px;
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    margin: 1rem 0;
+  }
 `;
 const LogoText = styled.p`
   color: ${(props) => props.theme.colors.primaryFont};
@@ -47,6 +50,15 @@ const StyledLinkCart = styled(Link)`
   display: flex;
   gap: 5px;
 `;
+const DesktopNav = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 72px;
+  }
+`;
 
 function NavBar() {
   const { itemCount } = useContext(CartContext);
@@ -56,22 +68,24 @@ function NavBar() {
         <Banner>
           <BannerText>A fictional storefront made for learning</BannerText>
         </Banner>
-        <Logo>
-          <Circle
-            aria-label="Circle-logo for the webstore"
-            color="#68704A"
-            strokeWidth={4}
-          />
-          <LogoText>Common Goods</LogoText>
-        </Logo>
-        <nav>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="shop">Shop</StyledLink>
-          <StyledLinkCart to="cart">
-            <ShoppingBag aria-label="Shopping bag" strokeWidth={2} />
-            {itemCount > 0 && <span>{itemCount}</span>}
-          </StyledLinkCart>
-        </nav>
+        <DesktopNav>
+          <Logo>
+            <Circle
+              aria-label="Circle-logo for the webstore"
+              color="#68704A"
+              strokeWidth={4}
+            />
+            <LogoText>Common Goods</LogoText>
+          </Logo>
+          <nav>
+            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="shop">Shop</StyledLink>
+            <StyledLinkCart to="cart">
+              <ShoppingBag aria-label="Shopping bag" strokeWidth={2} />
+              {itemCount > 0 && <span>{itemCount}</span>}
+            </StyledLinkCart>
+          </nav>
+        </DesktopNav>
       </header>
     </>
   );

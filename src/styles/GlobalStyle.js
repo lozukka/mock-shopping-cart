@@ -24,6 +24,16 @@ export const GlobalStyle = createGlobalStyle`
   flex-direction: column;
   gap: 10px }
 
+   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 16px;
+    }
+  }
+
   main {
   margin: 16px;
   }
