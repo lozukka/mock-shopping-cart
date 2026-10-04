@@ -27,7 +27,7 @@ const AddButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: ${(props) => props.theme.colors.primaryHover};
+    background: ${(props) => props.theme.colors.secondaryFont};
   }
 `;
 const Title = styled.h3`
@@ -40,6 +40,7 @@ const TextSection = styled.div`
 const StatusText = styled.p`
   color: ${(props) => props.theme.colors.secondaryFont};
   font-size: 13px;
+  margin-bottom: 10px;
 `;
 const ModifyButtons = styled.div`
   display: flex;
@@ -76,12 +77,12 @@ function FeaturedCard({ id, title, thumbnail, availabilityStatus, price }) {
               <CircleMinus />
             </AddButton>
             <QuantityText>{cartItem.quantity}</QuantityText>
-            <button
+            <AddButton
               onClick={() => incrementQty(id)}
               aria-label="Increase quantity"
             >
               <CirclePlus />
-            </button>
+            </AddButton>
           </ModifyButtons>
         ) : (
           <AddButton onClick={() => addToCart({ id, title, price, thumbnail })}>
