@@ -7,6 +7,11 @@ const Hero = styled.div`
   flex-direction: column;
   gap: 24px;
   margin-bottom: 200px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 const Line = styled.span`
   display: inline-block;
@@ -30,6 +35,10 @@ const HeroLeftSide = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex: 1;
+  }
 `;
 const MainHeading = styled.h1`
   font-weight: 500;
@@ -38,9 +47,17 @@ const MainHeading = styled.h1`
   font-size: 44px;
   margin-block: 0;
   line-height: 95%;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    width: 80%;
+  }
 `;
 const DescriptionText = styled.p`
   color: ${(props) => props.theme.colors.secondaryFont};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    width: 80%;
+  }
 `;
 const HeroLinks = styled.div`
   display: flex;
@@ -70,6 +87,10 @@ const StoryLink = styled(LinkButton)`
 const HeroRightSide = styled.div`
   display: flex;
   position: relative;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex: 1;
+  }
 `;
 const HeroImage = styled.img`
   width: 100%;

@@ -26,6 +26,10 @@ export const GlobalStyle = createGlobalStyle`
 
   main {
   margin: 16px;
-  border: 1px solid black;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+   main{
+   margin: 54px 72px;}
   }
 `;

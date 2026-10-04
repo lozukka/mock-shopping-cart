@@ -15,4 +15,8 @@ export const theme = {
     heading: "'Cormorant Garamond', serif",
     body: "'DM Sans Variable', sans-serif",
   },
+  breakpoints: {
+    tablet: "768px",
+    desktop: "1024px",
+  },
 };
