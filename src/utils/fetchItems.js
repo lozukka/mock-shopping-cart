@@ -1,5 +1,8 @@
-export async function fetchItems() {
-  const response = await fetch("https://dummyjson.com/products?limit=20");
+const productFetchUrl = `https://dummyjson.com/products?limit=`;
+
+export async function fetchItems(qty) {
+  const url = `${productFetchUrl}${qty}`;
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Response status: ${response.status}`);
   }

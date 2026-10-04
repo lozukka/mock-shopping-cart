@@ -158,6 +158,11 @@ function HomePage() {
           </HeroRightSideLink>
         </HeroRightSide>
       </Hero>
+      <div>
+        <div></div>
+        <div></div>
+      </div>
+      <footer></footer>
     </>
   );
 }

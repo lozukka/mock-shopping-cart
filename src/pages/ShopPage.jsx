@@ -10,7 +10,8 @@ function ShopPage() {
   useEffect(() => {
     async function loadItems() {
       try {
-        const results = await fetchItems();
+        const qty = 20;
+        const results = await fetchItems(qty);
         setItemList(results);
       } catch (error) {
         setError(error.message);
