@@ -42,4 +42,11 @@ export const GlobalStyle = createGlobalStyle`
    main{
    margin: 54px 72px;}
   }
+
+  footer {
+  background: ${(props) => props.theme.colors.backgroundDark};
+  width: 100%;
+  padding: 48px 16px 32px 16px;
+  }
+  
 `;

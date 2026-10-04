@@ -237,7 +237,6 @@ function HomePage() {
           ))}
         </FeaturedCards>
       </FeaturedGoods>
-      <footer></footer>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import NavBar from "./components/Navbar";
 import { CartProvider } from "./context/CartContext";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <main>
           <Outlet />
         </main>
+        <Footer />
       </CartProvider>
     </>
   );
