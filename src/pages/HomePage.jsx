@@ -3,6 +3,7 @@ import { ChevronRight } from "lucide-react";
 import heroImage from "../assets/heroImage.jpg";
 import { useEffect, useState } from "react";
 import { fetchItems } from "../utils/fetchItems";
+import FeaturedCard from "../components/FeaturedCard";
 
 const Hero = styled.div`
   display: flex;
@@ -186,7 +187,7 @@ function HomePage() {
         <div>
           <div>
             {itemList.map((item) => (
-              <ProductCard key={item.id} {...item} />
+              <FeaturedCard key={item.id} {...item} />
             ))}
           </div>
         </div>

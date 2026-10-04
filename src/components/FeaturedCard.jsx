@@ -20,7 +20,7 @@ const Thumbnail = styled.img`
 `;
 
 const AddButton = styled.button`
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.contrast};
   color: white;
   border: none;
   border-radius: 4px;
@@ -35,7 +35,7 @@ const Title = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading};
 `;
 
-function ProductCard({ id, title, thumbnail, description, price }) {
+function FeaturedCard({ id, title, thumbnail, price }) {
   const { cart, addToCart, incrementQty, decrementQty } =
     useContext(CartContext);
 
@@ -46,7 +46,6 @@ function ProductCard({ id, title, thumbnail, description, price }) {
       <Card>
         <Thumbnail src={thumbnail} alt={title} />
         <Title>{title}</Title>
-        <p>{description}</p>
         <p>{price.toFixed(2)}</p>
         {cartItem ? (
           <div>
@@ -74,4 +73,4 @@ function ProductCard({ id, title, thumbnail, description, price }) {
   );
 }
 
-export default ProductCard;
+export default FeaturedCard;
