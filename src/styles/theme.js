@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     primaryHover: "#FBF9F4",
     contrast: "#68704A",
+    contrastDark: "#454B32",
     primaryFont: "#24251F",
     secondaryFont: "#6F7067",
     contrastFont: "#fff",

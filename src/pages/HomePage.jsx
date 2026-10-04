@@ -9,7 +9,7 @@ const Hero = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 200px;
+  margin-bottom: 32px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     flex-direction: row;
@@ -27,7 +27,7 @@ const TaglineText = styled.p`
   letter-spacing: 1px;
   font-size: 12px;
   font-weight: 600;
-  color: ${(props) => props.theme.colors.primaryFont};
+  color: ${(props) => props.theme.colors.contrastDark};
 `;
 const Eyebrow = styled.div`
   display: flex;
@@ -78,11 +78,11 @@ const LinkButton = styled.a`
   gap: 10px;
 `;
 
-const ShopLink = styled(LinkButton)`
+const PrimaryLink = styled(LinkButton)`
   background: ${(props) => props.theme.colors.contrast};
   color: ${(props) => props.theme.colors.contrastFont};
 `;
-const StoryLink = styled(LinkButton)`
+const SecondaryLink = styled(LinkButton)`
   background: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.primaryFont};
   border: 1px solid ${(props) => props.theme.colors.primaryFont};
@@ -123,6 +123,34 @@ const ImageText = styled.p`
   color: ${(props) => props.theme.colors.overlayLight};
 `;
 
+const FeaturedGoods = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+const FeaturedDescriptionSection = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const FeaturedHeading = styled.h2`
+  font-weight: 500;
+  font-family: ${(props) => props.theme.fonts.heading};
+  color: ${(props) => props.theme.colors.primaryFont};
+  font-size: 38px;
+  margin-block: 1rem;
+  line-height: 95%;
+`;
+const FeaturedSecondaryLink = styled(SecondaryLink)`
+  width: 50%;
+  margin-top: 1rem;
+`;
+const FeaturedCards = styled.div`
+  display: flex;
+  flex-direction: column;
+  aling-items: center;
+  gap: 24px;
+`;
+
 function HomePage() {
   const [itemList, setItemList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -160,12 +188,12 @@ function HomePage() {
             breathe.
           </DescriptionText>
           <HeroLinks>
-            <ShopLink href="#">
+            <PrimaryLink href="#">
               Shop featured <ChevronRight size={18} />
-            </ShopLink>
-            <StoryLink href="#">
+            </PrimaryLink>
+            <SecondaryLink href="#">
               Read the story <ChevronRight size={18} />
-            </StoryLink>
+            </SecondaryLink>
           </HeroLinks>
         </HeroLeftSide>
         <HeroRightSide>
@@ -182,16 +210,33 @@ function HomePage() {
           </HeroRightSideLink>
         </HeroRightSide>
       </Hero>
-      <div>
-        <div></div>
-        <div>
+      <FeaturedGoods>
+        <FeaturedDescriptionSection>
           <div>
-            {itemList.map((item) => (
-              <FeaturedCard key={item.id} {...item} />
-            ))}
+            <Eyebrow>
+              <Line />
+              <TaglineText>Featured Goods</TaglineText>
+            </Eyebrow>
+            <FeaturedHeading>
+              Useful, familiar, and made to stay.
+            </FeaturedHeading>
           </div>
-        </div>
-      </div>
+          <div>
+            <DescriptionText>
+              A first edit of simple objects for the places where daily life
+              happens.
+            </DescriptionText>
+            <FeaturedSecondaryLink href="#">
+              View all products <ChevronRight size={18} />
+            </FeaturedSecondaryLink>
+          </div>
+        </FeaturedDescriptionSection>
+        <FeaturedCards>
+          {itemList.map((item) => (
+            <FeaturedCard key={item.id} {...item} />
+          ))}
+        </FeaturedCards>
+      </FeaturedGoods>
       <footer></footer>
     </>
   );

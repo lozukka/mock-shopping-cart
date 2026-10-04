@@ -5,7 +5,6 @@ import { CirclePlus } from "lucide-react";
 import styled from "styled-components";
 
 const Card = styled.div`
-  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1rem;
   display: flex;
@@ -34,8 +33,26 @@ const AddButton = styled.button`
 const Title = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading};
 `;
+const TextSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const StatusText = styled.p`
+  color: ${(props) => props.theme.colors.secondaryFont};
+  font-size: 13px;
+`;
+const ModifyButtons = styled.div`
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+`;
+const QuantityText = styled.span`
+  font-size: 18px;
+  font-weight: 500;
+`;
 
-function FeaturedCard({ id, title, thumbnail, price }) {
+function FeaturedCard({ id, title, thumbnail, availabilityStatus, price }) {
   const { cart, addToCart, incrementQty, decrementQty } =
     useContext(CartContext);
 
@@ -45,24 +62,27 @@ function FeaturedCard({ id, title, thumbnail, price }) {
     <>
       <Card>
         <Thumbnail src={thumbnail} alt={title} />
-        <Title>{title}</Title>
-        <p>{price.toFixed(2)}</p>
+        <TextSection>
+          <Title>{title}</Title>
+          <p>{price.toFixed(2)} €</p>
+        </TextSection>
+        <StatusText>{availabilityStatus}</StatusText>
         {cartItem ? (
-          <div>
+          <ModifyButtons>
             <AddButton
               onClick={() => decrementQty(id)}
               aria-label="Decrease quantity"
             >
               <CircleMinus />
             </AddButton>
-            <span>{cartItem.quantity}</span>
+            <QuantityText>{cartItem.quantity}</QuantityText>
             <button
               onClick={() => incrementQty(id)}
               aria-label="Increase quantity"
             >
               <CirclePlus />
             </button>
-          </div>
+          </ModifyButtons>
         ) : (
           <AddButton onClick={() => addToCart({ id, title, price, thumbnail })}>
             Add to Cart

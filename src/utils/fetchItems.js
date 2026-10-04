@@ -1,4 +1,4 @@
-const productFetchUrl = `https://dummyjson.com/products?limit=`;
+const productFetchUrl = `https://dummyjson.com/products/category/home-decoration?limit=`;
 
 export async function fetchItems(qty) {
   const url = `${productFetchUrl}${qty}`;
