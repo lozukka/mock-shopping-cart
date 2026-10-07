@@ -86,12 +86,16 @@ const FooterUpper = styled.div`
 const FooterUpperHalf = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 `;
 const SecondaryNavArea = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     display: flex;
     gap: 50px;
+    align-self: end;
+    padding-right: 50px;
   }
 `;
 const FooterDown = styled.div`
