@@ -11,8 +11,13 @@ const Card = styled.div`
   flex-direction: column;
   gap: 0.5rem;
 
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    width: 300px;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     padding: 0;
+    width: auto;
   }
 `;
 

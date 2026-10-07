@@ -178,9 +178,17 @@ const FeaturedCards = styled.div`
   aling-items: center;
   gap: 24px;
 
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     flex-direction: row;
     justify-content: space-between;
+    gap: 24px;
   }
 `;
 
