@@ -45,6 +45,10 @@ const SectionLine = styled.hr`
   border: 1px solid ${(props) => props.theme.colors.overlayLight};
   margin-top: 40px;
   margin-bottom: 22px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    margin-top: 74px;
+  }
 `;
 const Copyright = styled.p`
   color: ${(props) => props.theme.colors.overlayLight};
@@ -72,53 +76,82 @@ const ProjectLabel = styled.p`
   margin-block: 1rem;
 `;
 
+const FooterUpper = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    display: flex;
+    justify-content: space-between;
+    gap: 200px;
+  }
+`;
+const FooterUpperHalf = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex: 1;
+  }
+`;
+const SecondaryNavArea = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    display: flex;
+    gap: 50px;
+  }
+`;
+const FooterDown = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
 function Footer() {
   return (
     <>
       <footer>
-        <div>
-          <SecondaryLogo>Common Goods</SecondaryLogo>
-          <FooterDescriptionText>
-            A fictional learning project about simple, useful objects for home
-            and desk.
-          </FooterDescriptionText>
-          <FooterTagline>
-            Designed somewhere between home and work
-          </FooterTagline>
-        </div>
-        <div>
-          <div>
-            <div>
-              <SecondaryNavHeadings>Shop</SecondaryNavHeadings>
-              <SecondaryNavSection>
-                <SecondaryNavLink>New arrivals</SecondaryNavLink>
-                <SecondaryNavLink>Home</SecondaryNavLink>
-                <SecondaryNavLink>Desk</SecondaryNavLink>
-                <SecondaryNavLink>Gift cards</SecondaryNavLink>
-              </SecondaryNavSection>
-            </div>
-            <div>
-              <SecondaryNavHeadings>About</SecondaryNavHeadings>
-              <SecondaryNavSection>
-                <SecondaryNavLink>Our story</SecondaryNavLink>
-                <SecondaryNavLink>Materials</SecondaryNavLink>
-                <SecondaryNavLink>Journal</SecondaryNavLink>
-                <SecondaryNavLink>Learning notes</SecondaryNavLink>
-              </SecondaryNavSection>
-            </div>
-            <div>
-              <SecondaryNavHeadings>Help</SecondaryNavHeadings>
-              <SecondaryNavSection>
-                <SecondaryNavLink>Shipping</SecondaryNavLink>
-                <SecondaryNavLink>Returns</SecondaryNavLink>
-                <SecondaryNavLink>Care Guide</SecondaryNavLink>
-                <SecondaryNavLink>Contact</SecondaryNavLink>
-              </SecondaryNavSection>
-            </div>
-          </div>
-        </div>
-        <div>
-          <SectionLine />
+        <FooterUpper>
+          <FooterUpperHalf>
+            <SecondaryLogo>Common Goods</SecondaryLogo>
+            <FooterDescriptionText>
+              A fictional learning project about simple, useful objects for home
+              and desk.
+            </FooterDescriptionText>
+            <FooterTagline>
+              Designed somewhere between home and work
+            </FooterTagline>
+          </FooterUpperHalf>
+          <FooterUpperHalf>
+            <SecondaryNavArea>
+              <div>
+                <SecondaryNavHeadings>Shop</SecondaryNavHeadings>
+                <SecondaryNavSection>
+                  <SecondaryNavLink>New arrivals</SecondaryNavLink>
+                  <SecondaryNavLink>Home</SecondaryNavLink>
+                  <SecondaryNavLink>Desk</SecondaryNavLink>
+                  <SecondaryNavLink>Gift cards</SecondaryNavLink>
+                </SecondaryNavSection>
+              </div>
+              <div>
+                <SecondaryNavHeadings>About</SecondaryNavHeadings>
+                <SecondaryNavSection>
+                  <SecondaryNavLink>Our story</SecondaryNavLink>
+                  <SecondaryNavLink>Materials</SecondaryNavLink>
+                  <SecondaryNavLink>Journal</SecondaryNavLink>
+                  <SecondaryNavLink>Learning notes</SecondaryNavLink>
+                </SecondaryNavSection>
+              </div>
+              <div>
+                <SecondaryNavHeadings>Help</SecondaryNavHeadings>
+                <SecondaryNavSection>
+                  <SecondaryNavLink>Shipping</SecondaryNavLink>
+                  <SecondaryNavLink>Returns</SecondaryNavLink>
+                  <SecondaryNavLink>Care Guide</SecondaryNavLink>
+                  <SecondaryNavLink>Contact</SecondaryNavLink>
+                </SecondaryNavSection>
+              </div>
+            </SecondaryNavArea>
+          </FooterUpperHalf>
+        </FooterUpper>
+
+        <SectionLine />
+        <FooterDown>
           <Copyright>© 2026 Common Goods · Concept store</Copyright>
           <LegalLinks>
             <LegalLink href="#">Privacy</LegalLink>
@@ -126,7 +159,7 @@ function Footer() {
             <LegalLink href="#">Media</LegalLink>
           </LegalLinks>
           <ProjectLabel>Made to learn.</ProjectLabel>
-        </div>
+        </FooterDown>
       </footer>
     </>
   );

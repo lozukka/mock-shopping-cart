@@ -48,5 +48,13 @@ export const GlobalStyle = createGlobalStyle`
   width: 100%;
   padding: 48px 16px 32px 16px;
   }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.desktop}){
+  footer{
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  }
+  }
   
 `;

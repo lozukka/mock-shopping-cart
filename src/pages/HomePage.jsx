@@ -128,10 +128,30 @@ const FeaturedGoods = styled.div`
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 40px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    margin-top: 100px;
+  }
 `;
 const FeaturedDescriptionSection = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex-direction: row;
+  }
+`;
+const FeaturedDescriptionSections = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex: 1;
+  }
+`;
+const FeaturedDescriptionSectionsRight = styled(FeaturedDescriptionSections)`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
 `;
 const FeaturedHeading = styled.h2`
   font-weight: 500;
@@ -140,6 +160,13 @@ const FeaturedHeading = styled.h2`
   font-size: 38px;
   margin-block: 1rem;
   line-height: 95%;
+`;
+const FeaturedDescriptionText = styled(DescriptionText)`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    text-align: right;
+    width: 100%;
+    padding-left: 20%;
+  }
 `;
 const FeaturedSecondaryLink = styled(SecondaryLink)`
   width: 50%;
@@ -150,6 +177,11 @@ const FeaturedCards = styled.div`
   flex-direction: column;
   aling-items: center;
   gap: 24px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 function HomePage() {
@@ -213,7 +245,7 @@ function HomePage() {
       </Hero>
       <FeaturedGoods>
         <FeaturedDescriptionSection>
-          <div>
+          <FeaturedDescriptionSections>
             <Eyebrow>
               <Line />
               <TaglineText>Featured Goods</TaglineText>
@@ -221,16 +253,16 @@ function HomePage() {
             <FeaturedHeading>
               Useful, familiar, and made to stay.
             </FeaturedHeading>
-          </div>
-          <div>
-            <DescriptionText>
+          </FeaturedDescriptionSections>
+          <FeaturedDescriptionSectionsRight>
+            <FeaturedDescriptionText>
               A first edit of simple objects for the places where daily life
               happens.
-            </DescriptionText>
+            </FeaturedDescriptionText>
             <FeaturedSecondaryLink href="#">
               View all products <ChevronRight size={18} />
             </FeaturedSecondaryLink>
-          </div>
+          </FeaturedDescriptionSectionsRight>
         </FeaturedDescriptionSection>
         <FeaturedCards>
           {itemList.map((item) => (

@@ -10,6 +10,10 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    padding: 0;
+  }
 `;
 
 const Thumbnail = styled.img`
@@ -32,10 +36,23 @@ const AddButton = styled.button`
 `;
 const Title = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading};
+  font-weight: 600;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    font-size: 15px;
+  }
 `;
 const TextSection = styled.div`
   display: flex;
   justify-content: space-between;
+  font-family: ${(props) => props.theme.fonts.heading};
+  font-weight: 600;
+  align-items: center;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    font-size: 15px;
+    gap: 5px;
+  }
 `;
 const StatusText = styled.p`
   color: ${(props) => props.theme.colors.secondaryFont};
