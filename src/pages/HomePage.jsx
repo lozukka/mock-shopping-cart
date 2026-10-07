@@ -131,6 +131,7 @@ const FeaturedGoods = styled.div`
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     margin-top: 100px;
+    margin-bottom: 88px;
   }
 `;
 const FeaturedDescriptionSection = styled.div`
