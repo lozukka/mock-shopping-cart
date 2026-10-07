@@ -127,6 +127,7 @@ const FeaturedGoods = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 40px;
 `;
 const FeaturedDescriptionSection = styled.div`
   display: flex;

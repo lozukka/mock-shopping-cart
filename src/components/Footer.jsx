@@ -1,5 +1,26 @@
 import styled from "styled-components";
 
+const SecondaryLogo = styled.h3`
+  color: ${(props) => props.theme.colors.contrastFont};
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 18px;
+  margin-block: 16px;
+`;
+const FooterDescriptionText = styled.p`
+  color: ${(props) => props.theme.colors.secondaryFont};
+  font-size: 13px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    width: 80%;
+  }
+`;
+const FooterTagline = styled.p`
+  color: ${(props) => props.theme.colors.secondaryFont};
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-block: 1rem;
+`;
 const SecondaryNavHeadings = styled.h4`
   color: ${(props) => props.theme.colors.primaryHover};
   fonst-size: 11px;
@@ -15,6 +36,40 @@ const SecondaryNavLink = styled.li`
   font-size: 13px;
   font-weight: 400;
   padding: 5px 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+const SectionLine = styled.hr`
+  border: 1px solid ${(props) => props.theme.colors.overlayLight};
+  margin-top: 40px;
+  margin-bottom: 22px;
+`;
+const Copyright = styled.p`
+  color: ${(props) => props.theme.colors.overlayLight};
+  font-size: 11px;
+  margin-block: 16px;
+`;
+const LegalLinks = styled.div`
+  display: flex;
+  gap: 22px;
+`;
+const LegalLink = styled.a`
+  font-size: 11px;
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.overlayLight};
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+const ProjectLabel = styled.p`
+  font-family: ${(props) => props.theme.fonts.heading};
+  color: ${(props) => props.theme.colors.overlayLight};
+  font-style: italic;
+  font-size: 24px;
+  margin-block: 1rem;
 `;
 
 function Footer() {
@@ -22,12 +77,14 @@ function Footer() {
     <>
       <footer>
         <div>
-          <h3>Common Goods</h3>
-          <p>
+          <SecondaryLogo>Common Goods</SecondaryLogo>
+          <FooterDescriptionText>
             A fictional learning project about simple, useful objects for home
             and desk.
-          </p>
-          <p>Designed somewhere between home and work</p>
+          </FooterDescriptionText>
+          <FooterTagline>
+            Designed somewhere between home and work
+          </FooterTagline>
         </div>
         <div>
           <div>
@@ -61,13 +118,14 @@ function Footer() {
           </div>
         </div>
         <div>
-          <p>© 2026 Common Goods · Concept store</p>
-          <div>
-            <p>Privacy</p>
-            <p>Terms</p>
-            <p>Media</p>
-          </div>
-          <p>Made to learn.</p>
+          <SectionLine />
+          <Copyright>© 2026 Common Goods · Concept store</Copyright>
+          <LegalLinks>
+            <LegalLink href="#">Privacy</LegalLink>
+            <LegalLink href="#">Terms</LegalLink>
+            <LegalLink href="#">Media</LegalLink>
+          </LegalLinks>
+          <ProjectLabel>Made to learn.</ProjectLabel>
         </div>
       </footer>
     </>
