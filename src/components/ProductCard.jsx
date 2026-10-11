@@ -17,7 +17,6 @@ const Card = styled.div`
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     padding: 0;
-    width: auto;
   }
 `;
 
@@ -64,10 +63,6 @@ const DescriptionText = styled.p`
   color: ${(props) => props.theme.colors.secondaryFont};
   font-size: 13px;
   margin-bottom: 10px;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    width: 80%;
-  }
 `;
 const ModifyButtons = styled.div`
   display: flex;

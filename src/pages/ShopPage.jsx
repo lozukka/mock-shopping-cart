@@ -39,7 +39,7 @@ const DescriptionText = styled.p`
 const ProductCards = styled.div`
   display: flex;
   flex-direction: column;
-  aling-items: center;
+  align-items: center;
   gap: 24px;
   margin-bottom: 40px;
 
@@ -51,7 +51,7 @@ const ProductCards = styled.div`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    gap: 24px;
+    gap: 3rem;
     margin-top: 100px;
     margin-bottom: 88px;
   }
