@@ -3,6 +3,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CartContext } from "../../src/context/CartContext";
 import CartItem from "../../src/components/CartItem";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../src/styles/theme";
 
 describe("CartItem", () => {
   const item = {
@@ -15,9 +17,11 @@ describe("CartItem", () => {
 
   function renderWithContext(contextValue) {
     return render(
-      <CartContext.Provider value={contextValue}>
-        <CartItem {...item} />
-      </CartContext.Provider>,
+      <ThemeProvider theme={theme}>
+        <CartContext.Provider value={contextValue}>
+          <CartItem {...item} />
+        </CartContext.Provider>
+      </ThemeProvider>,
     );
   }
 
