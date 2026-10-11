@@ -44,9 +44,24 @@ function CartPage() {
         </EmptyCart>
       ) : (
         <div>
-          {cart.map((item) => (
-            <CartItem key={item.id} {...item} />
-          ))}
+          <div>
+            <h1>Your items</h1>
+            <div>
+              {cart.map((item) => (
+                <CartItem key={item.id} {...item} />
+              ))}
+            </div>
+          </div>
+          <aside>
+            <h2>Order summary:</h2>
+            <div>
+              <span>1 product</span>
+              <span>Product total 50€</span>
+              <span>Delivery: free</span>
+              <span>Total: 50€</span>
+              <a href="#">Checkout -</a>
+            </div>
+          </aside>
         </div>
       )}
     </>
