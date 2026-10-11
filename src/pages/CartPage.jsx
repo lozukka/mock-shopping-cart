@@ -19,7 +19,7 @@ const CartHeading = styled.h1`
   font-size: 44px;
   margin-block: 2rem;
 `;
-const StyledLink = styled.a`
+const Checkout = styled.a`
   text-decoration: none;
   font-weight: 500;
   font-size: 13px;
@@ -48,21 +48,21 @@ const ShopLink = styled(Link)`
   color: ${(props) => props.theme.colors.contrastFont};
 `;
 
-const ShoppingCart = styled.div`
+const CartLayout = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     display: flex;
     width: 100%;
     gap: 30px;
   }
 `;
-const OrderSummarySection = styled.aside`
+const OrderSummary = styled.aside`
   background: ${(props) => props.theme.colors.overlayLight};
   padding: 10px;
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     flex: 1;
   }
 `;
-const OrderSummary = styled.h2`
+const OrderSummaryHeading = styled.h2`
   font-weight: 500;
   font-family: ${(props) => props.theme.fonts.heading};
   color: ${(props) => props.theme.colors.primaryFont};
@@ -94,7 +94,7 @@ function CartPage() {
           <ShopLink to="/shop">Continue shopping</ShopLink>
         </EmptyCart>
       ) : (
-        <ShoppingCart>
+        <CartLayout>
           <ShoppingCartItems>
             <CartHeading>Your items</CartHeading>
             <div>
@@ -103,19 +103,19 @@ function CartPage() {
               ))}
             </div>
           </ShoppingCartItems>
-          <OrderSummarySection>
-            <OrderSummary>Order summary:</OrderSummary>
+          <OrderSummary>
+            <OrderSummaryHeading>Order summary:</OrderSummaryHeading>
             <OrderTotals>
               <span>Products: {itemCount}</span>
               <span>Product total: {total.toFixed(2)} €</span>
               <span>Delivery: free</span>
               <OrderTotal>Order total: {total.toFixed(2)} €</OrderTotal>
-              <StyledLink href="#">
+              <Checkout href="#">
                 Checkout <MoveRight />
-              </StyledLink>
+              </Checkout>
             </OrderTotals>
-          </OrderSummarySection>
-        </ShoppingCart>
+          </OrderSummary>
+        </CartLayout>
       )}
     </>
   );
