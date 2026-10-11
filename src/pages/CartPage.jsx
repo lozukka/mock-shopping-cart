@@ -33,10 +33,19 @@ const StyledLink = styled.a`
   color: ${(props) => props.theme.colors.contrastFont};
 `;
 
-const ShoppingCart = styled.div``;
+const ShoppingCart = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+  }
+`;
 const OrderSummarySection = styled.aside`
   background: ${(props) => props.theme.colors.overlayLight};
   padding: 10px;
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex: 1;
+  }
 `;
 const OrderSummary = styled.h2`
   font-weight: 500;
@@ -51,6 +60,11 @@ const OrderTotals = styled.div`
 `;
 const OrderTotal = styled.span`
   font-weight: 600;
+`;
+const ShoppingCartItems = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    flex: 2;
+  }
 `;
 
 function CartPage() {
@@ -68,14 +82,14 @@ function CartPage() {
         </EmptyCart>
       ) : (
         <ShoppingCart>
-          <div>
+          <ShoppingCartItems>
             <CartHeading>Your items</CartHeading>
             <div>
               {cart.map((item) => (
                 <CartItem key={item.id} {...item} />
               ))}
             </div>
-          </div>
+          </ShoppingCartItems>
           <OrderSummarySection>
             <OrderSummary>Order summary:</OrderSummary>
             <OrderTotals>
