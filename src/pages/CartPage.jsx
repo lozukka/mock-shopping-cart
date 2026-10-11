@@ -31,6 +31,8 @@ const ContiueShopping = styled.a`
   color: ${(props) => props.theme.colors.contrastFont};
 `;
 
+const ShoppingCart = styled.div``;
+
 function CartPage() {
   const { cart } = useContext(CartContext);
 
@@ -43,7 +45,7 @@ function CartPage() {
           <ContiueShopping href="#">Continue shopping</ContiueShopping>
         </EmptyCart>
       ) : (
-        <div>
+        <ShoppingCart>
           <div>
             <h1>Your items</h1>
             <div>
@@ -62,7 +64,7 @@ function CartPage() {
               <a href="#">Checkout -</a>
             </div>
           </aside>
-        </div>
+        </ShoppingCart>
       )}
     </>
   );
