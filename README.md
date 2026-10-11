@@ -30,8 +30,7 @@ A fictional storefront built to practice React. Browse products, add them to a c
 | Product data         | [DummyJSON](https://dummyjson.com/)                                                         |
 | Hosting              | Netlify                                                                                     |
 | Fonts                | 'Cormorant Garamond' (serif), 'DM Sans Variable' (sans-serif) - self-hosted with Fontsource |
-
-I also used Trello as project management tool.
+| Project management   | Trello                                                                                      |
 
 ## Getting started
 
