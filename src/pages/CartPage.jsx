@@ -3,6 +3,7 @@ import { CartContext } from "../context/CartContext";
 import CartItem from "../components/CartItem";
 import styled from "styled-components";
 import { ShoppingBasket } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 const EmptyCart = styled.div`
   display: flex;
@@ -10,14 +11,14 @@ const EmptyCart = styled.div`
   align-items: center;
   margin: 2rem;
 `;
-const EmptyCartHeading = styled.h1`
+const CartHeading = styled.h1`
   font-weight: 500;
   font-family: ${(props) => props.theme.fonts.heading};
   color: ${(props) => props.theme.colors.primaryFont};
   font-size: 44px;
   margin-block: 2rem;
 `;
-const ContiueShopping = styled.a`
+const StyledLink = styled.a`
   text-decoration: none;
   font-weight: 500;
   font-size: 13px;
@@ -26,44 +27,67 @@ const ContiueShopping = styled.a`
   border-radius: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: ${(props) => props.theme.colors.contrast};
   color: ${(props) => props.theme.colors.contrastFont};
 `;
 
 const ShoppingCart = styled.div``;
+const OrderSummarySection = styled.aside`
+  background: ${(props) => props.theme.colors.overlayLight};
+  padding: 10px;
+`;
+const OrderSummary = styled.h2`
+  font-weight: 500;
+  font-family: ${(props) => props.theme.fonts.heading};
+  color: ${(props) => props.theme.colors.primaryFont};
+  margin-block: 0.5rem;
+`;
+const OrderTotals = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+const OrderTotal = styled.span`
+  font-weight: 600;
+`;
 
 function CartPage() {
   const { cart } = useContext(CartContext);
+  const { itemCount } = useContext(CartContext);
+  const { total } = useContext(CartContext);
 
   return (
     <>
       {cart.length === 0 ? (
         <EmptyCart>
           <ShoppingBasket size={200} color="#68704A" strokeWidth={1.25} />
-          <EmptyCartHeading>Cart is empty</EmptyCartHeading>
-          <ContiueShopping href="#">Continue shopping</ContiueShopping>
+          <CartHeading>Cart is empty</CartHeading>
+          <StyledLink href="#">Continue shopping</StyledLink>
         </EmptyCart>
       ) : (
         <ShoppingCart>
           <div>
-            <h1>Your items</h1>
+            <CartHeading>Your items</CartHeading>
             <div>
               {cart.map((item) => (
                 <CartItem key={item.id} {...item} />
               ))}
             </div>
           </div>
-          <aside>
-            <h2>Order summary:</h2>
-            <div>
-              <span>1 product</span>
-              <span>Product total 50€</span>
+          <OrderSummarySection>
+            <OrderSummary>Order summary:</OrderSummary>
+            <OrderTotals>
+              <span>Products: {itemCount}</span>
+              <span>Product total: {total} €</span>
               <span>Delivery: free</span>
-              <span>Total: 50€</span>
-              <a href="#">Checkout -</a>
-            </div>
-          </aside>
+              <OrderTotal>Order total: {total} €</OrderTotal>
+              <StyledLink href="#">
+                Checkout <MoveRight />
+              </StyledLink>
+            </OrderTotals>
+          </OrderSummarySection>
         </ShoppingCart>
       )}
     </>
