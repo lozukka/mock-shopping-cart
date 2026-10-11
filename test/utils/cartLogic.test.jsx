@@ -161,7 +161,7 @@ describe("addItem", () => {
 
     expect(result).toEqual([]);
   });
-  it("does not mutate the original cart", () => {
+  it("does not mutate the original cart when decrementing", () => {
     const cart = [
       {
         id: 1,
@@ -174,14 +174,6 @@ describe("addItem", () => {
 
     const result = decrementItem(cart, 1);
 
-    expect(result).toEqual([
-      {
-        id: 1,
-        title: "Test product",
-        price: 9.99,
-        thumbnail: "test.jpg",
-        quantity: 1,
-      },
-    ]);
+    expect(cart[0].quantity).toBe(2);
   });
 });
