@@ -33,6 +33,7 @@ const AddButton = styled.button`
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
+  font-size: 18px;
 
   &:hover {
     background: ${(props) => props.theme.colors.secondaryFont};
@@ -96,14 +97,14 @@ function ProductCard({ id, title, thumbnail, description, price }) {
               onClick={() => decrementQty(id)}
               aria-label="Decrease quantity"
             >
-              <CircleMinus />
+              <CircleMinus size={16} />
             </AddButton>
             <QuantityText>{cartItem.quantity}</QuantityText>
             <AddButton
               onClick={() => incrementQty(id)}
               aria-label="Increase quantity"
             >
-              <CirclePlus />
+              <CirclePlus size={16} />
             </AddButton>
           </ModifyButtons>
         ) : (
